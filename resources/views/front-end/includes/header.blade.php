@@ -11,21 +11,33 @@
                 <div class="col-lg-5">
                     <div class="float-right">
                         <ul class="right_side">
+                            @if(!Session::get('customerId'))
                             <li>
                                 <a href="cart.html">
-                                    gift card
+                                    Login
                                 </a>
                             </li>
                             <li>
                                 <a href="tracking.html">
-                                    track order
+                                    Register
+                                </a>
+                            </li>
+                            @else
+                            <li>
+                                <a href="contact.html">
+                                    Welcome {{Session::get('customerName')}}!
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
-                                    Contact Us
+                                <a href="{{ route('checkout-logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
                                 </a>
+                                <form id="logout-form" action="{{ route('checkout-logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </li>
+                                @endif
                         </ul>
                     </div>
                 </div>

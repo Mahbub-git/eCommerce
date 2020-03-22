@@ -2006,7 +2006,7 @@
 			}
 		}
 	
-		/* User specified column options */
+		/* UserController specified column options */
 		if ( oOptions !== undefined && oOptions !== null )
 		{
 			// Backwards compatibility

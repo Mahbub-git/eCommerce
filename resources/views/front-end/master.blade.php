@@ -22,6 +22,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="{{asset('/front-end')}}/css/style.css" />
     <link rel="stylesheet" href="{{asset('/front-end')}}/css/responsive.css" />
+
 </head>
 
 <body>

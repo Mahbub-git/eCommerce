@@ -12,6 +12,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     {{--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">--}}
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -35,9 +37,10 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{asset('admin/js')}}/jquery.dataTables.js"></script>
 <script src="{{asset('admin/js')}}/dataTables.bootstrap4.js"></script>
+<script src="{{asset('admin/js')}}/ckeditor.js"></script>
 {{--<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>--}}
 <script>
     $(function () {
@@ -51,6 +54,30 @@
             "autoWidth": false
         });
     });
+</script>
+<script>
+    // function readURL(input) {
+    //     if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
+    //         reader.onload = function(e) {
+    //             $('#blah').attr('src', e.target.result);
+    //         }
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
+    // $("#imgInp").change(function() {
+    //     readURL(this);
+    // });
+
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
 </script>
 </body>
 </html>

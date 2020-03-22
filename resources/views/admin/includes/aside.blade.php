@@ -13,7 +13,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{Auth::user()->name}}</a>
@@ -33,6 +33,16 @@
                         </p>
                     </a>
                 </li>
+                @if(Auth::user()->role == 1)
+                <li class="nav-item has-treeview">
+                    <a href="{{url('user')}}" class="nav-link">
+                        <i class="nav-icon fa fa-user"></i>
+                        <p>
+                            User
+                        </p>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{route('category')}}" class="nav-link">
                         <i class="nav-icon fa fa-th"></i>
@@ -41,69 +51,32 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('brands')}}" class="nav-link">
+                        <i class="nav-icon fa fa-tree"></i>
+                        <p>
+                            Brand
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('product')}}" class="nav-link">
                         <i class="nav-icon fa fa-pie-chart"></i>
                         <p>
-                            Charts
+                            Product
                             <i class="right fa fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../charts/chartjs.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>ChartJS</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../charts/flot.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Flot</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../charts/inline.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Inline</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('orders')}}" class="nav-link">
                         <i class="nav-icon fa fa-tree"></i>
                         <p>
-                            UI Elements
+                            Manage Orders
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../UI/general.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>General</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../UI/icons.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Icons</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../UI/buttons.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Buttons</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../UI/sliders.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Sliders</p>
-                            </a>
-                        </li>
-                    </ul>
+
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

@@ -8,24 +8,27 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{route('category-save')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Category Name</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Category Name">
+                        <input type="text" name="cat_name" class="form-control" id="exampleInputEmail1" placeholder="Enter Category Name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Category Description</label>
-                        <textarea class="form-control" id="exampleInputPassword1" placeholder="Enter Category Description"></textarea>
+                        <textarea class="form-control" name="cat_desc" id="exampleInputPassword1" placeholder="Enter Category Description"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Category Image</label>
-                        <input type="file" class="form-control-file" id="exampleInputEmail1">
+                        <input type="file" name="cat_image" class="form-control-file" onchange="loadFile(event)">
+                        <img id="output" src="" width="200"/>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Publication Status</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>Published</option>
-                            <option>Unpublished</option>
+                        <select class="form-control" id="exampleFormControlSelect1" name="status">
+                            <option>Select</option>
+                            <option value="1">Published</option>
+                            <option value="0">Unpublished</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Category</button>
